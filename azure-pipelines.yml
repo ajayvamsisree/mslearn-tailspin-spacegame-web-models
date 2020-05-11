@@ -53,23 +53,23 @@ steps:
     arguments: '--no-build --configuration $(buildConfiguration) --output $(Build.ArtifactStagingDirectory)/$(buildConfiguration)'
     zipAfterPublish: true
 
-- task: PublishPipelineArtifact@1
-  inputs:
-    targetPath: $(System.DefaultWorkingDirectory)/bin/WebApp
-    artifactName: WebApp
+#- task: PublishPipelineArtifact@1
+#  inputs:
+#    targetPath: $(System.DefaultWorkingDirectory)/bin/WebApp
+#    artifactName: WebApp
 
 
-- task: DownloadPipelineArtifact@2
-  inputs:
-    artifact: WebApp
+#- task: DownloadPipelineArtifact@2
+#  inputs:
+#    artifact: WebApp
 
-- task: DownloadPipelineArtifact@2
-  inputs:
-    artifact: WebApp
-    patterns: '**/*.js'
-    path: $(Build.SourcesDirectory)/bin
+#- task: DownloadPipelineArtifact@2
+#  inputs:
+#    artifact: WebApp
+#    patterns: '**/*.js'
+#    path: $(Build.SourcesDirectory)/bin
 
-#- task: PublishBuildArtifacts@1
-#  displayName: 'Publish Artifact: drop'
-#  condition: succeeded()
+- task: PublishBuildArtifacts@1
+  displayName: 'Publish Artifact: drop'
+  condition: succeeded()
     
